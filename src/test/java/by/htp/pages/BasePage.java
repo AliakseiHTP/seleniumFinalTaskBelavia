@@ -14,8 +14,8 @@ public abstract class BasePage {
 		this.driver = driver;
 	}
 	
-	static boolean isPresentXpath(WebDriver driver, String xpath) {
-        return driver.findElements(By.xpath(xpath)).size() > 0;
+	static boolean isPresent(WebDriver driver, By by) {
+        return driver.findElements(by).size() > 0; //.xpath(xpath)
     }
 	
 	public void moveMouseOn(WebDriver driver, WebElement element) {

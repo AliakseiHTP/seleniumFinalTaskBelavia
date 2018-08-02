@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="ReportsExample">
+<suite name="Reports">
 	<listeners>
-		<listener class-name="by.htp.listener.TestFailCustomListener" />
+		<listener class-name="by.htp.listener.CustomListener" />
 	</listeners>
 
-	<test name="SimpleTest">
+	<test name="OneWayTest">
 		<classes>
- 			<class name="by.htp.testCases.TestMailRu" />
+ 			<class name="by.htp.testCases.TestOneWay" />
 		</classes>
  	</test> 
-
-	<!-- <test name="ListenerTest">
-		<groups>
-			<run>
-				<include name="login" />
-			</run>
-		</groups>
-		<classes>
-			<class name="by.htp.testCases.ListenerTest" />
-		</classes>
-	</test> -->
 </suite>

@@ -2,6 +2,7 @@ package by.htp.steps;
 
 import org.openqa.selenium.WebDriver;
 
+import by.htp.pages.MainPage;
 import by.htp.webdriver.DriverSingleton;
 
 public class OneWayTicketSteps {
@@ -13,5 +14,10 @@ public class OneWayTicketSteps {
 
 	public void closeDriver() {
 		DriverSingleton.closeDriver();
+	}
+	
+	public void openMainPage() {
+		MainPage mainPage = new MainPage(driver);
+		mainPage.openPage();
 	}
 }

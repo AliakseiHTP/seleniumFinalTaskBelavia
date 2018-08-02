@@ -2,6 +2,7 @@ package by.htp.testCases;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import by.htp.steps.OneWayTicketSteps;
 
@@ -12,6 +13,11 @@ public class TestOneWay {
 	public void setUp() {
 		step = new OneWayTicketSteps();
 		step.initBrowser();
+	}
+	
+	@Test(description = "Open main page", priority = 1)
+	public void openMainPage() {
+		step.openMainPage();
 	}
 	
 	@AfterTest(description = "Stop Browser")
