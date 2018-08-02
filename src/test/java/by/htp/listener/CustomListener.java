@@ -20,10 +20,12 @@ public class CustomListener implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
+		Log.getLogInfo("----------===TEST START===----------");
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
+		Log.getLogInfo("----------===TEST SUCCESS===----------");
 	}
 
 	@Override

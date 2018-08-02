@@ -3,7 +3,6 @@ package by.htp.webdriver;
 import static by.htp.utils.PropertyManager.getProperty;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
