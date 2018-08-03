@@ -48,8 +48,8 @@ public class CustomListener implements ITestListener {
 	@Override
 	public void onFinish(ITestContext context) {
 	}
-	
-	public static String getDate() {
+
+	private static String getDate() {
 		return new SimpleDateFormat("dd.MM.yyyy HH.mm.ss").format(Calendar.getInstance().getTime());
     }
 	

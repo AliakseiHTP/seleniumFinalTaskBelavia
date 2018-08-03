@@ -4,21 +4,21 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import by.htp.steps.OneWayTicketSteps;
+import by.htp.steps.SearchTicketSteps;
 
 public class TestOneWay {
-	private OneWayTicketSteps step;
+	private SearchTicketSteps step;
 	
 	@BeforeTest(description = "Init browser")
 	public void setUp() {
-		step = new OneWayTicketSteps();
+		step = new SearchTicketSteps();
 		step.initBrowser();
 	}
 	
 	@Test(description = "Open main page", priority = 1)
-	public void openMainPage() throws InterruptedException {
+	public void openMainPage() {
 		step.openMainPage();
-		step.searchOneWayTicket();
+		step.searchTicketOneWay();
 	}
 	
 	@AfterTest(description = "Stop Browser")

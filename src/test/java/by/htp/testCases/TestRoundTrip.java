@@ -1,21 +1,27 @@
 package by.htp.testCases;
 
+import by.htp.steps.SearchTicketSteps;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
-import by.htp.steps.RoundTripTicketSteps;
+import org.testng.annotations.Test;
 
 public class TestRoundTrip {
-	private RoundTripTicketSteps step;
-	
+	private SearchTicketSteps step;
+
 	@BeforeTest(description = "Init browser")
 	public void setUp() {
-		step = new RoundTripTicketSteps();
+		step = new SearchTicketSteps();
 		step.initBrowser();
 	}
-	
+
+	@Test(description = "Open main page", priority = 1)
+	public void openMainPage() {
+		step.openMainPage();
+		step.searchTicketRoundTrip();
+	}
+
 	@AfterTest(description = "Stop Browser")
 	public void stopBrowser() {
-		step.closeDriver();
+		//step.closeDriver();
 	}
 }
