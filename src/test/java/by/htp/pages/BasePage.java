@@ -7,6 +7,8 @@ import by.htp.utils.Log;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public abstract class BasePage {
 	WebDriver driver;
 
@@ -27,6 +29,10 @@ public abstract class BasePage {
     WebElement findOneElement(By by) {
         return (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    List<WebElement> findListOfElements(By by) {
+	    return driver.findElements(by);
     }
 
 	void typeTextInTbx(Elements.ElementsEnum selTxb, String someText){

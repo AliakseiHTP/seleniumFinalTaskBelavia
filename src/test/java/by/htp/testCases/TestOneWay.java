@@ -18,7 +18,16 @@ public class TestOneWay {
 	@Test(description = "Open main page", priority = 1)
 	public void openMainPage() {
 		step.openMainPage();
+	}
+
+	@Test(description = "Fill info", priority = 2)
+	public void fillInfo() {
 		step.searchTicketOneWay();
+	}
+
+	@Test(description = "Choose ticket", priority = 3)
+	public void chooseTicket() {
+		step.chooseTicket();
 	}
 	
 	@AfterTest(description = "Stop Browser")

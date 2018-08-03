@@ -17,8 +17,12 @@ public class TestRoundTrip {
 	@Test(description = "Open main page", priority = 1)
 	public void openMainPage() {
 		step.openMainPage();
-		step.searchTicketRoundTrip();
 	}
+
+    @Test(description = "Fill info", priority = 2)
+    public void fillInfo() {
+        step.searchTicketRoundTrip();
+    }
 
 	@AfterTest(description = "Stop Browser")
 	public void stopBrowser() {

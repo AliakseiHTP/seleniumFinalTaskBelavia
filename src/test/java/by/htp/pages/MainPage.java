@@ -5,8 +5,6 @@ import static by.htp.utils.PropertyManager.getProperty;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import by.htp.pages.Elements.ElementsEnum;
@@ -14,7 +12,7 @@ import by.htp.utils.Log;
 
 public class MainPage extends BasePage{
 	private static final String BASE_URL = getProperty("main.page.url");
-	private static final String MAIN_LOGO = "//div[@class='logo']//img";
+	private static final String BASE_ELEMENT = "//div[@class='logo']//img";
 	private static final String ORIGIN = getProperty("city.from");
 	private static final String DESTINATION = getProperty("city.to");
     private static final String DEPARTURE_INPUT = "//input[@id='DepartureDate_Datepicker']/../a";
@@ -31,7 +29,7 @@ public class MainPage extends BasePage{
 	@Override
 	public void openPage() {
 		driver.navigate().to(BASE_URL);
-		Assert.assertTrue(isPresent(By.xpath(MAIN_LOGO)));
+		Assert.assertTrue(isPresent(By.xpath(BASE_ELEMENT)));
 		Log.getLogInfo("Main page was appear");
 	}
 	

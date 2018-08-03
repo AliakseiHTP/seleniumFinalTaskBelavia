@@ -1,5 +1,6 @@
 package by.htp.steps;
 
+import by.htp.pages.TariffCalendarPage;
 import org.openqa.selenium.WebDriver;
 
 import by.htp.pages.MainPage;
@@ -30,4 +31,10 @@ public class SearchTicketSteps {
 		MainPage mainPage = new MainPage(driver);
 		mainPage.searchTicketRoundTrip();
 	}
+
+    public void chooseTicket() {
+        TariffCalendarPage tariffCalendarPage = new TariffCalendarPage(driver);
+        tariffCalendarPage.openPage();
+        tariffCalendarPage.chooseVariantOfTicket();
+    }
 }
