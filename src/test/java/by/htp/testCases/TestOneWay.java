@@ -16,12 +16,13 @@ public class TestOneWay {
 	}
 	
 	@Test(description = "Open main page", priority = 1)
-	public void openMainPage() {
+	public void openMainPage() throws InterruptedException {
 		step.openMainPage();
+		step.searchOneWayTicket();
 	}
 	
 	@AfterTest(description = "Stop Browser")
 	public void stopBrowser() {
-		step.closeDriver();
+		//step.closeDriver();
 	}
 }

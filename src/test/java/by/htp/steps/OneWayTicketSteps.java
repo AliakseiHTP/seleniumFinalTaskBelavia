@@ -20,4 +20,9 @@ public class OneWayTicketSteps {
 		MainPage mainPage = new MainPage(driver);
 		mainPage.openPage();
 	}
+	
+	public void searchOneWayTicket() throws InterruptedException {
+		MainPage mainPage = new MainPage(driver);
+		mainPage.searchTicket();
+	}
 }

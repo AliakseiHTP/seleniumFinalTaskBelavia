@@ -1,6 +1,6 @@
 package by.htp.webdriver;
 
-import static by.htp.utils.PropertyManager.getProperty;
+import static by.htp.utils.PropertyManager.getSettingsProperty;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -15,11 +15,11 @@ import by.htp.utils.Log;
 
 public class DriverSingleton {
 	private static WebDriver driver;
-	private static final String BROWSER = getProperty("browser");
-    private static final String CHROME = getProperty("webdriver.chrome");
-    private static final String CHROME_EXE = getProperty("driver.exe.path.chrome");
-    private static final String FIREFOX = getProperty("webdriver.firefox");
-    private static final String FIREFOX_EXE = getProperty("driver.exe.path.firefox");
+	private static final String BROWSER = getSettingsProperty("browser");
+    private static final String CHROME = getSettingsProperty("webdriver.chrome");
+    private static final String CHROME_EXE = getSettingsProperty("driver.exe.path.chrome");
+    private static final String FIREFOX = getSettingsProperty("webdriver.firefox");
+    private static final String FIREFOX_EXE = getSettingsProperty("driver.exe.path.firefox");
     
     private DriverSingleton(){};
 
