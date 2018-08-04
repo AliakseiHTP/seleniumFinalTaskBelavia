@@ -11,7 +11,8 @@ import java.util.List;
 public class TariffCalendarPage extends BasePage {
     private static final String BASE_ELEMENT = "//div[@id='calendar']";
     private static final String LIST_OF_TICKETS = "//input[@name='date']/../label";
-
+    private static final String NEXT_BTN = "//button[@value='next']";
+    
     public TariffCalendarPage(WebDriver driver) {
         super(driver);
     }
@@ -19,15 +20,18 @@ public class TariffCalendarPage extends BasePage {
     @Override
     public void openPage() {
     	Assert.assertTrue(isPresent(By.xpath(BASE_ELEMENT)));
-    	Log.getLogInfo("Tariff Calendar was appear");
+    	Log.getLogInfo("Tariff calendar page was appear");
     }
 
     public void chooseTicketAndCheckItInfo() {
         List<WebElement> listOfTickets = findListOfElements(By.xpath(LIST_OF_TICKETS));
         System.out.println(listOfTickets.size());
-        for(int i = 0; i < listOfTickets.size(); i++) {
-            WebElement chooseTicket = findOneElement(By.xpath(String.format("(%s)[%d]",LIST_OF_TICKETS,i+1)));
+        /*for(int i = 0; i < listOfTickets.size(); i++) {*/
+            WebElement chooseTicket = findOneElement(By.xpath(String.format("(%s)[%d]",LIST_OF_TICKETS,/*i+*/1)));
             chooseTicket.click();
-        }
+            WebElement nextBtn = findOneElement(By.xpath(NEXT_BTN));
+            nextBtn.click();
+            
+        /*}*/
     }
 }
