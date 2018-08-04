@@ -32,13 +32,8 @@ public class TestOneWay {
 		step.chooseTicket();
 	}
 
-	/*
-	 * @Test(priority = 4) public void ticketInfoCollection() {
-	 * step.ticketInfoCollection(); }
-	 */
-
 	@AfterTest(description = "Stop Browser")
 	public void stopBrowser() {
-		// step.closeDriver();
+		//step.closeDriver();
 	}
 }
