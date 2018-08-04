@@ -29,11 +29,11 @@ public class TestOneWay {
 
 	@Test(priority = 3)
 	public void chooseTicket() {
-		step.chooseTicket();
+		step.chooseOneWayTicket();
 	}
 
 	@AfterTest(description = "Stop Browser")
 	public void stopBrowser() {
-		//step.closeDriver();
+		// step.closeDriver();
 	}
 }

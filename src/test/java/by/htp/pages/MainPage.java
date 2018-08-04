@@ -64,21 +64,13 @@ public class MainPage extends BasePage {
 	}
 
 	public void checkRightMonthAndClick() {
-		System.out.println("1");
 		WebElement prevMonth = findOneElement(By.xpath(PREV_MONTH));
-		System.out.println("2");
-		if(!isPresent(By.xpath(DEPARTURE_DATE))) {
-			System.out.println("3");
+		if (!isPresent(By.xpath(DEPARTURE_DATE))) {
 			prevMonth.click();
-			System.out.println("4");
 			checkRightMonthAndClick();
-			System.out.println("5");
 		} else {
-		System.out.println("6");
-		WebElement departureDateBtn = findOneElement(By.xpath(DEPARTURE_DATE));
-		System.out.println("7");
-		departureDateBtn.click();
-		System.out.println("8");
+			WebElement departureDateBtn = findOneElement(By.xpath(DEPARTURE_DATE));
+			departureDateBtn.click();
 		}
 	}
 
@@ -86,7 +78,6 @@ public class MainPage extends BasePage {
 		WebElement departureDateInput = findOneElement(By.xpath(DEPARTURE_INPUT));
 		departureDateInput.click();
 		checkRightMonthAndClick();
-		System.out.println("9");
 	}
 
 	public void searchBtnClick() {

@@ -37,9 +37,15 @@ public class SearchTicketSteps {
 		mainPage.searchTicketRoundTrip(selOriginLocation, selCityFrom, selDestinationLocation, selCityTo, selWay);
 	}
 
-	public void chooseTicket() {
+	public void chooseOneWayTicket() {
 		TariffCalendarPage tariffCalendarPage = new TariffCalendarPage(driver);
 		tariffCalendarPage.openPage();
-		tariffCalendarPage.seeAllAvailableTickets();
+		tariffCalendarPage.seeAllAvailableOneWayTickets();
+	}
+	
+	public void chooseRoundWayTicket() {
+		TariffCalendarPage tariffCalendarPage = new TariffCalendarPage(driver);
+		tariffCalendarPage.openPage();
+		tariffCalendarPage.seeAllAvailableRoundTripTickets();
 	}
 }

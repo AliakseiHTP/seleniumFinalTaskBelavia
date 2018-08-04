@@ -15,17 +15,22 @@ public class TestRoundTrip {
 		step.initBrowser();
 	}
 
-	@Test(description = "Open main page", priority = 1)
+	@Test(priority = 1)
 	public void openMainPage() {
 		step.openMainPage();
 	}
 
-	@Test(description = "Search kind of ticket", priority = 2)
+	@Test(priority = 2)
 	public void searchKindOfTicket() {
 		step.searchTicketRoundTrip(ElementsEnum.ORIGIN_LOCATION, ElementsEnum.CITY_FROM,
 				ElementsEnum.DESTINATION_LOCATION, ElementsEnum.CITY_TO, ElementsEnum.ROUND_TRIP);
 	}
 
+	@Test(priority = 3)
+	public void chooseTicket() {
+		step.chooseRoundWayTicket();
+	}
+	
 	@AfterTest(description = "Stop Browser")
 	public void stopBrowser() {
 		// step.closeDriver();

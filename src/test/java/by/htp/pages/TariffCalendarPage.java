@@ -28,16 +28,36 @@ public class TariffCalendarPage extends BasePage {
 		Log.getLogInfo("Tariff calendar page was appear");
 	}
 
-	public void chooseTicketAndCheckItInfo() {
+	public void chooseTicketOneWayAndCheckItInfo() {
 		TicketInfoPage ticketInfoPage = new TicketInfoPage(driver);
 		List<WebElement> listOfTickets = findListOfElements(By.xpath(LIST_OF_TICKETS));
-		System.out.println(listOfTickets.size());
 		for (int i = 0; i < listOfTickets.size(); i++) {
 			WebElement chooseTicket = findOneElement(By.xpath(String.format("(%s)[%d]", LIST_OF_TICKETS, i + 1)));
 			chooseTicket.click();
 			WebElement nextBtn = findOneElement(By.xpath(NEXT_BTN));
 			nextBtn.click();
-			ticketInfoPage.ticketInfoCollection();
+			ticketInfoPage.ticketInfoCollectionOneWay();
+			needSleep(1000);
+		}
+		WebElement cancelBtn = findOneElement(By.xpath(CANCEL_BUTTON));
+		cancelBtn.click();
+		needSleep(1000);
+		MainPage mainPage = new MainPage(driver);
+		mainPage.chooseDepartureDateAndSearch();
+		mainPage.searchBtnClick();
+		needSleep(1000);
+		iCount++;
+	}
+	
+	public void chooseTicketRoundTripAndCheckItInfo() {
+		TicketInfoPage ticketInfoPage = new TicketInfoPage(driver);
+		List<WebElement> listOfTickets = findListOfElements(By.xpath(LIST_OF_TICKETS));
+		for (int i = 0; i < listOfTickets.size(); i++) {
+			WebElement chooseTicket = findOneElement(By.xpath(String.format("(%s)[%d]", LIST_OF_TICKETS, i + 1)));
+			chooseTicket.click();
+			WebElement nextBtn = findOneElement(By.xpath(NEXT_BTN));
+			nextBtn.click();
+			ticketInfoPage.ticketInfoCollectionRoundTrip();
 			needSleep(1000);
 		}
 		WebElement cancelBtn = findOneElement(By.xpath(CANCEL_BUTTON));
@@ -50,13 +70,12 @@ public class TariffCalendarPage extends BasePage {
 		iCount++;
 	}
 
-	public void seeAllAvailableTickets() {
+	public void seeAllAvailableOneWayTickets() {
 		do {
-			System.out.println("шаги "+iCount);
 			if (iCount == 0) {
 				if (!isPresent(By.xpath(TILL_DATE))) {
-					chooseTicketAndCheckItInfo();
-					seeAllAvailableTickets();
+					chooseTicketOneWayAndCheckItInfo();
+					seeAllAvailableOneWayTickets();
 				}
 			} else if (iCount > 0) {
 				for (int i = 0; i < iCount; i++) {
@@ -65,8 +84,29 @@ public class TariffCalendarPage extends BasePage {
 					needSleep(1000);
 				}
 				if (!isPresent(By.xpath(TILL_DATE))) {
-					chooseTicketAndCheckItInfo();
-					seeAllAvailableTickets();
+					chooseTicketOneWayAndCheckItInfo();
+					seeAllAvailableOneWayTickets();
+				}
+			}
+		} while (iCount < 12);
+	}
+	
+	public void seeAllAvailableRoundTripTickets() {
+		do {
+			if (iCount == 0) {
+				if (!isPresent(By.xpath(TILL_DATE))) {
+					chooseTicketRoundTripAndCheckItInfo();
+					seeAllAvailableRoundTripTickets();
+				}
+			} else if (iCount > 0) {
+				for (int i = 0; i < iCount; i++) {
+					WebElement next7Days = findOneElement(By.xpath(NEXT_7_DAYS));
+					next7Days.click();
+					needSleep(1000);
+				}
+				if (!isPresent(By.xpath(TILL_DATE))) {
+					chooseTicketRoundTripAndCheckItInfo();
+					seeAllAvailableRoundTripTickets();
 				}
 			}
 		} while (iCount < 12);
