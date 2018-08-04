@@ -20,6 +20,11 @@ public abstract class BasePage {
 	
 	boolean isPresent(By by) {
         try {
+        	try {
+				needSleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
             return driver.findElements(by).size() > 0;
         } catch (NoSuchElementException e) {
             return false;

@@ -9,8 +9,8 @@ import org.testng.Assert;
 import java.util.List;
 
 public class TariffCalendarPage extends BasePage {
-    private static final String BASE_ELEMENT = "//div[@id='calendar']/h1[contains(text(),'Календарь тарифов')]";
-    private static final String LIST_OF_TICKETS = "//input[@name='date']";
+    private static final String BASE_ELEMENT = "//div[@id='calendar']";
+    private static final String LIST_OF_TICKETS = "//input[@name='date']/../label";
 
     public TariffCalendarPage(WebDriver driver) {
         super(driver);
@@ -18,11 +18,11 @@ public class TariffCalendarPage extends BasePage {
 
     @Override
     public void openPage() {
-        //Assert.assertTrue(isPresent(By.xpath(BASE_ELEMENT)));
-        Log.getLogInfo("Tariff Calendar was appear");
+    	Assert.assertTrue(isPresent(By.xpath(BASE_ELEMENT)));
+    	Log.getLogInfo("Tariff Calendar was appear");
     }
 
-    public void chooseVariantOfTicket() {
+    public void chooseTicketAndCheckItInfo() {
         List<WebElement> listOfTickets = findListOfElements(By.xpath(LIST_OF_TICKETS));
         System.out.println(listOfTickets.size());
         for(int i = 0; i < listOfTickets.size(); i++) {

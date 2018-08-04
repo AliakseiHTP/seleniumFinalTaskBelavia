@@ -4,6 +4,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import by.htp.pages.Elements.ElementsEnum;
 import by.htp.steps.SearchTicketSteps;
 
 public class TestOneWay {
@@ -20,9 +21,10 @@ public class TestOneWay {
 		step.openMainPage();
 	}
 
-	@Test(description = "Fill info", priority = 2)
-	public void fillInfo() {
-		step.searchTicketOneWay();
+	@Test(description = "Search kind of ticket", priority = 2)
+	public void searchKindOfTicket() {
+		step.searchTicketOneWay(ElementsEnum.ORIGIN_LOCATION, ElementsEnum.CITY_FROM,
+				ElementsEnum.DESTINATION_LOCATION, ElementsEnum.CITY_TO, ElementsEnum.ONE_WAY);
 	}
 
 	@Test(description = "Choose ticket", priority = 3)

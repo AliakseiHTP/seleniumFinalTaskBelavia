@@ -1,6 +1,8 @@
 package by.htp.steps;
 
 import by.htp.pages.TariffCalendarPage;
+import by.htp.pages.Elements.ElementsEnum;
+
 import org.openqa.selenium.WebDriver;
 
 import by.htp.pages.MainPage;
@@ -22,19 +24,25 @@ public class SearchTicketSteps {
 		mainPage.openPage();
 	}
 	
-	public void searchTicketOneWay() {
+	public void searchTicketOneWay(ElementsEnum selOriginLocation,
+    		ElementsEnum selCityFrom, ElementsEnum selDestinationLocation, ElementsEnum selCityTo,
+    		ElementsEnum selWay) {
 		MainPage mainPage = new MainPage(driver);
-		mainPage.searchTicketOneWay();
+		mainPage.searchTicketOneWay(selOriginLocation, selCityFrom, selDestinationLocation, selCityTo,
+				selWay);
 	}
 
-	public void searchTicketRoundTrip() {
+	public void searchTicketRoundTrip(ElementsEnum selOriginLocation,
+    		ElementsEnum selCityFrom, ElementsEnum selDestinationLocation, ElementsEnum selCityTo,
+    		ElementsEnum selWay) {
 		MainPage mainPage = new MainPage(driver);
-		mainPage.searchTicketRoundTrip();
+		mainPage.searchTicketRoundTrip(selOriginLocation, selCityFrom, selDestinationLocation, selCityTo,
+				selWay);
 	}
 
     public void chooseTicket() {
         TariffCalendarPage tariffCalendarPage = new TariffCalendarPage(driver);
         tariffCalendarPage.openPage();
-        tariffCalendarPage.chooseVariantOfTicket();
+        tariffCalendarPage.chooseTicketAndCheckItInfo();
     }
 }

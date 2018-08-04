@@ -1,5 +1,6 @@
 package by.htp.testCases;
 
+import by.htp.pages.Elements.ElementsEnum;
 import by.htp.steps.SearchTicketSteps;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -19,9 +20,10 @@ public class TestRoundTrip {
 		step.openMainPage();
 	}
 
-    @Test(description = "Fill info", priority = 2)
-    public void fillInfo() {
-        step.searchTicketRoundTrip();
+    @Test(description = "Search kind of ticket", priority = 2)
+    public void searchKindOfTicket() {
+        step.searchTicketRoundTrip(ElementsEnum.ORIGIN_LOCATION, ElementsEnum.CITY_FROM,
+				ElementsEnum.DESTINATION_LOCATION, ElementsEnum.CITY_TO, ElementsEnum.ROUND_TRIP);
     }
 
 	@AfterTest(description = "Stop Browser")

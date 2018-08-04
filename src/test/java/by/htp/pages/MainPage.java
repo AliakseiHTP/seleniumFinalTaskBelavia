@@ -44,15 +44,23 @@ public class MainPage extends BasePage{
 		}
 	}
 
-    public void searchTicketOneWay() {
-        typeTextInTbx(ElementsEnum.ORIGIN_LOCATION, ORIGIN);
-        clickOnDropdownElement(ElementsEnum.CITY_FROM);
+	private void routeSelection(ElementsEnum selOriginLocation,
+    		ElementsEnum selCityFrom, ElementsEnum selDestinationLocation, ElementsEnum selCityTo,
+    		ElementsEnum selWay) {
+		typeTextInTbx(selOriginLocation, ORIGIN);
+        clickOnDropdownElement(selCityFrom);
         Log.getLogInfo(String.format("Departure city selected - %s", ORIGIN));
-        typeTextInTbx(ElementsEnum.DESTINATION_LOCATION, DESTINATION);
-        clickOnDropdownElement(ElementsEnum.CITY_TO);
+        typeTextInTbx(selDestinationLocation, DESTINATION);
+        clickOnDropdownElement(selCityTo);
         Log.getLogInfo(String.format("City of arrival selected - %s", DESTINATION));
-        chooseKindOfTicket(ElementsEnum.ONE_WAY);
+        chooseKindOfTicket(selWay);
         Log.getLogInfo("One way selected");
+	}
+	
+    public void searchTicketOneWay(ElementsEnum selOriginLocation,
+    		ElementsEnum selCityFrom, ElementsEnum selDestinationLocation, ElementsEnum selCityTo,
+    		ElementsEnum selWay) {
+    	routeSelection(selOriginLocation, selCityFrom, selDestinationLocation, selCityTo, selWay);
         WebElement departureDateInput = findOneElement(By.xpath(DEPARTURE_INPUT));
         departureDateInput.click();
         WebElement departureDateBtn = findOneElement(By.xpath(DEPARTURE_DATE));
@@ -63,15 +71,10 @@ public class MainPage extends BasePage{
         Log.getLogInfo("Searching for results");
     }
 
-	public void searchTicketRoundTrip() {
-		typeTextInTbx(ElementsEnum.ORIGIN_LOCATION, ORIGIN);
-		clickOnDropdownElement(ElementsEnum.CITY_FROM);
-		Log.getLogInfo(String.format("Departure city selected - %s", ORIGIN));
-		typeTextInTbx(ElementsEnum.DESTINATION_LOCATION, DESTINATION);
-		clickOnDropdownElement(ElementsEnum.CITY_TO);
-		Log.getLogInfo(String.format("City of arrival selected - %s", DESTINATION));
-        chooseKindOfTicket(ElementsEnum.ROUND_TRIP);
-        Log.getLogInfo("Round Trip selected");
+	public void searchTicketRoundTrip(ElementsEnum selOriginLocation,
+    		ElementsEnum selCityFrom, ElementsEnum selDestinationLocation, ElementsEnum selCityTo,
+    		ElementsEnum selWay) {
+		routeSelection(selOriginLocation, selCityFrom, selDestinationLocation, selCityTo, selWay);
         WebElement departureDateInput = findOneElement(By.xpath(DEPARTURE_INPUT));
         departureDateInput.click();
         WebElement departureDateBtn = findOneElement(By.xpath(DEPARTURE_DATE));
