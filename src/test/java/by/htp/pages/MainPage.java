@@ -63,7 +63,7 @@ public class MainPage extends BasePage {
 		Log.getLogInfo("One way selected");
 	}
 
-	public void checkRightMonthAndClick() {
+	private void checkRightMonthAndClick() {
 		WebElement prevMonth = findOneElement(By.xpath(PREV_MONTH));
 		if (!isPresent(By.xpath(DEPARTURE_DATE))) {
 			prevMonth.click();
