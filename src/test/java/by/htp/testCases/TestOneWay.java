@@ -16,20 +16,25 @@ public class TestOneWay {
 		step.initBrowser();
 	}
 	
-	@Test(description = "Open main page", priority = 1)
+	@Test(priority = 1)
 	public void openMainPage() {
 		step.openMainPage();
 	}
 
-	@Test(description = "Search kind of ticket", priority = 2)
+	@Test(priority = 2)
 	public void searchKindOfTicket() {
 		step.searchTicketOneWay(ElementsEnum.ORIGIN_LOCATION, ElementsEnum.CITY_FROM,
 				ElementsEnum.DESTINATION_LOCATION, ElementsEnum.CITY_TO, ElementsEnum.ONE_WAY);
 	}
 
-	@Test(description = "Choose ticket", priority = 3)
+	@Test(priority = 3)
 	public void chooseTicket() {
 		step.chooseTicket();
+	}
+	
+	@Test(priority = 4)
+	public void ticketInfoCollection() {
+		step.ticketInfoCollection();
 	}
 	
 	@AfterTest(description = "Stop Browser")

@@ -1,6 +1,7 @@
 package by.htp.steps;
 
 import by.htp.pages.TariffCalendarPage;
+import by.htp.pages.TicketInfoPage;
 import by.htp.pages.Elements.ElementsEnum;
 
 import org.openqa.selenium.WebDriver;
@@ -44,5 +45,11 @@ public class SearchTicketSteps {
         TariffCalendarPage tariffCalendarPage = new TariffCalendarPage(driver);
         tariffCalendarPage.openPage();
         tariffCalendarPage.chooseTicketAndCheckItInfo();
+    }
+    
+    public void ticketInfoCollection() {
+    	TicketInfoPage ticketInfoPage = new TicketInfoPage(driver);
+    	ticketInfoPage.openPage();
+    	ticketInfoPage.ticketInfoCollection();
     }
 }

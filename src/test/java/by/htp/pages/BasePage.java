@@ -20,11 +20,7 @@ public abstract class BasePage {
 	
 	boolean isPresent(By by) {
         try {
-        	try {
-				needSleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			needSleep(1000);
             return driver.findElements(by).size() > 0;
         } catch (NoSuchElementException e) {
             return false;
@@ -52,8 +48,12 @@ public abstract class BasePage {
 		Elements.getStrongElement(driver, selBtn);
     }
 	
-	static void needSleep(int iTime) throws InterruptedException {
-        Thread.sleep(iTime);
+	static void needSleep(int iTime) {
+		try {
+			Thread.sleep(iTime);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         Log.getLogInfo(String.format("waiting %d millis", iTime));
     }
 
