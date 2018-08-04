@@ -5,20 +5,20 @@ import org.apache.logging.log4j.Logger;
 
 public class Log {
 	private static final Logger logger;
-	
+
 	static {
 		logger = LogManager.getRootLogger();
 	}
-	
-	public static void getLogInfo(String s){
-        logger.info(s);
-    }
-	
-	public static void getLogWarn(String s){
-        logger.warn(s);
-    }
-	
-	public static void getLogFatal(String s){
-        logger.fatal(s);
-    }
+
+	public static void getLogInfo(String s) {
+		logger.info(s);
+	}
+
+	public static void getLogWarn(String s) {
+		logger.warn(s);
+	}
+
+	public static void getLogFatal(String s) {
+		logger.fatal(s);
+	}
 }

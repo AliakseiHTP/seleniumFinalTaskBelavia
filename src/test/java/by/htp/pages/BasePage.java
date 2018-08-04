@@ -14,57 +14,55 @@ public abstract class BasePage {
 
 	public abstract void openPage();
 
-	BasePage(WebDriver driver){
+	BasePage(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 	boolean isPresent(By by) {
-        try {
-			needSleep(1000);
-            return driver.findElements(by).size() > 0;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
+		try {
+			return driver.findElements(by).size() > 0;
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+	}
 
-    WebElement findOneElement(By by) {
-        return (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
+	WebElement findOneElement(By by) {
+		return (new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
 
-    List<WebElement> findListOfElements(By by) {
-	    return driver.findElements(by);
-    }
+	List<WebElement> findListOfElements(By by) {
+		return driver.findElements(by);
+	}
 
-	void typeTextInTbx(Elements.ElementsEnum selTxb, String someText){
+	void typeTextInTbx(Elements.ElementsEnum selTxb, String someText) {
 		Elements.getElement(driver, selTxb, someText);
-    }
+	}
 
-    void chooseKindOfTicket(Elements.ElementsEnum selCheckBox){
-        Elements.chooseKindOfTicket(driver, selCheckBox);
-    }
-	
-	void clickOnDropdownElement(Elements.ElementsEnum selBtn){
+	void chooseKindOfTicket(Elements.ElementsEnum selCheckBox) {
+		Elements.chooseKindOfTicket(driver, selCheckBox);
+	}
+
+	void clickOnDropdownElement(Elements.ElementsEnum selBtn) {
 		Elements.getStrongElement(driver, selBtn);
-    }
-	
+	}
+
 	static void needSleep(int iTime) {
 		try {
 			Thread.sleep(iTime);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-        Log.getLogInfo(String.format("waiting %d millis", iTime));
-    }
+		Log.getLogInfo(String.format("waiting %d millis", iTime));
+	}
 
-    void moveMouseOn(WebElement element) {
-        Actions action = new Actions(driver);
-        action.moveToElement(element).build().perform();
-    }
+	void moveMouseOn(WebElement element) {
+		Actions action = new Actions(driver);
+		action.moveToElement(element).build().perform();
+	}
 
 	void clickOnElementJE(WebElement element) {
-		JavascriptExecutor executor = (JavascriptExecutor)driver;
-		executor.executeScript("arguments[0].click();",element);
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", element);
 		Log.getLogInfo("Clicking using JavascriptExecutor");
 	}
 }

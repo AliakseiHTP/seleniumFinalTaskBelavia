@@ -9,13 +9,13 @@ import by.htp.steps.SearchTicketSteps;
 
 public class TestOneWay {
 	private SearchTicketSteps step;
-	
+
 	@BeforeTest(description = "Init browser")
 	public void setUp() {
 		step = new SearchTicketSteps();
 		step.initBrowser();
 	}
-	
+
 	@Test(priority = 1)
 	public void openMainPage() {
 		step.openMainPage();
@@ -23,22 +23,22 @@ public class TestOneWay {
 
 	@Test(priority = 2)
 	public void searchKindOfTicket() {
-		step.searchTicketOneWay(ElementsEnum.ORIGIN_LOCATION, ElementsEnum.CITY_FROM,
-				ElementsEnum.DESTINATION_LOCATION, ElementsEnum.CITY_TO, ElementsEnum.ONE_WAY);
+		step.searchTicketOneWay(ElementsEnum.ORIGIN_LOCATION, ElementsEnum.CITY_FROM, ElementsEnum.DESTINATION_LOCATION,
+				ElementsEnum.CITY_TO, ElementsEnum.ONE_WAY);
 	}
 
 	@Test(priority = 3)
 	public void chooseTicket() {
 		step.chooseTicket();
 	}
-	
-	@Test(priority = 4)
-	public void ticketInfoCollection() {
-		step.ticketInfoCollection();
-	}
-	
+
+	/*
+	 * @Test(priority = 4) public void ticketInfoCollection() {
+	 * step.ticketInfoCollection(); }
+	 */
+
 	@AfterTest(description = "Stop Browser")
 	public void stopBrowser() {
-		//step.closeDriver();
+		// step.closeDriver();
 	}
 }

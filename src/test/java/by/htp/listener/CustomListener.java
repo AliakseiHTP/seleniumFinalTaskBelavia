@@ -30,7 +30,7 @@ public class CustomListener implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		Reporter.log("<img src= \"" + takeScreenshot() +"\">");
+		Reporter.log("<img src= \"" + takeScreenshot() + "\">");
 	}
 
 	@Override
@@ -51,20 +51,18 @@ public class CustomListener implements ITestListener {
 
 	private static String getDate() {
 		return new SimpleDateFormat("dd.MM.yyyy HH.mm.ss").format(Calendar.getInstance().getTime());
-    }
-	
+	}
+
 	private String takeScreenshot() {
 		String filePath = String.format("test-output/screenshots/screenshot %s.png", getDate());
 		String filePathToReports = String.format("screenshots/screenshot %s.png", getDate());
-		File screenShot = ((TakesScreenshot)DriverSingleton
-				.getDriver())
-                .getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(screenShot, new File(filePath));
-            Log.getLogInfo(String.format("See screenshot here '%s'",filePath));
-        } catch (IOException e) {
-        	Log.getLogWarn("Failed to save screenshot: " + e.getLocalizedMessage());
-        }
-        return filePathToReports;
-    }
+		File screenShot = ((TakesScreenshot) DriverSingleton.getDriver()).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(screenShot, new File(filePath));
+			Log.getLogInfo(String.format("See screenshot here '%s'", filePath));
+		} catch (IOException e) {
+			Log.getLogWarn("Failed to save screenshot: " + e.getLocalizedMessage());
+		}
+		return filePathToReports;
+	}
 }
