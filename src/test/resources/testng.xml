@@ -10,4 +10,9 @@
  			<class name="by.htp.testCases.TestOneWay" />
 		</classes>
  	</test> 
+ 	<test name="RoundTripTest">
+		<classes>
+ 			<class name="by.htp.testCases.TestRoundTrip" />
+		</classes>
+ 	</test> 
 </suite>
