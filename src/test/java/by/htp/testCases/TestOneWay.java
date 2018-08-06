@@ -34,6 +34,6 @@ public class TestOneWay {
 
 	@AfterTest(description = "Stop Browser")
 	public void stopBrowser() {
-		// step.closeDriver();
+		step.closeDriver();
 	}
 }
